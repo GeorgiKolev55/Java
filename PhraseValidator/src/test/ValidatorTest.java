@@ -14,54 +14,55 @@ public class ValidatorTest {
     }
     @Test
     public void testWithEmptyString(){
-        boolean tf = validator.isValidExpression("");
-        assertEquals(false,tf);
+        boolean f = validator.isValidExpression("");
+        assertFalse(f);
     }
-    @Test(expected=NullPointerException.class)
+    @Test(expected=IllegalArgumentException.class)
     public void testWithNull(){
-        boolean tf = validator.isValidExpression(null);
+        validator.isValidExpression(null);
 
     }
     @Test
-    public void testWithExample1(){
+    public void testWithTrueExpression1(){
 
-        boolean tf = validator.isValidExpression("AaBb");
-        assertEquals(true,tf);
+        boolean t = validator.isValidExpression("AaBb");
+        assertTrue(t);
     }
     @Test
-    public void testWithExample2(){
+    public void testWithTrueExpression2(){
 
-        boolean tf = validator.isValidExpression("BCAacb");
-        assertEquals(true,tf);
+        boolean t = validator.isValidExpression("BCAacb");
+        assertTrue(t);
     }
     @Test
-    public  void testWithExample3(){
-        boolean tf = validator.isValidExpression("BCcAab");
-        assertEquals(true,tf);
+    public  void testWithTrueExpression3(){
+        boolean t = validator.isValidExpression("BCcAab");
+        assertTrue(t);
     }
     @Test
-    public  void testWithExample4(){
-        boolean tf = validator.isValidExpression("ACABbBbaca");
-        assertEquals(true,tf);
+    public  void testWithTrueExpression4(){
+        boolean t = validator.isValidExpression("ACABbBbaca");
+        assertTrue(t);
     }
     @Test
-    public  void testWithExample5(){
-        boolean tf = validator.isValidExpression("AabB");
-        assertEquals(false,tf);
+    public  void testWithFalseExpression1(){
+        boolean f = validator.isValidExpression("AabB");
+        assertFalse(f);
     }
     @Test
-    public  void testWithExample6(){
-        boolean tf = validator.isValidExpression("BCAcaB");
-        assertEquals(false,tf);
+    public  void testWithFalseExpression2(){
+        boolean f = validator.isValidExpression("BCAcaB");
+        assertFalse(f);
     }
     @Test
-    public  void testWithExample7(){
-        boolean tf = validator.isValidExpression("FaCa");
-        assertEquals(false,tf);
+    public  void testWithFalseExpression3(){
+        boolean f = validator.isValidExpression("AFaCa");
+        assertFalse(f);
     }
     @Test
-    public  void testWithExample8(){
-        boolean tf = validator.isValidExpression("cCAa");
-        assertEquals(false,tf);
+    public  void testWithFalseExpression4(){
+        boolean f = validator.isValidExpression("Afa");
+        assertFalse(f);
     }
+
 }
